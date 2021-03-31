@@ -1,0 +1,11 @@
+.gradle
+.idea
+local.properties
+gradlew
+gradlew.bat
+Searchact.iml
+.project
+.settings/*
+app/.classpath
+app/.project
+app/.settings/*

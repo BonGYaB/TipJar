@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TipJar</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="how_many_people">How many people?</string>
+    <string name="tip">% Tip</string>
+    <string name="total_tip">Total Tip</string>
+    <string name="per_person">Per Person</string>
+    <string name="save_payment">Save payment</string>
+    <string name="saved_payment">SAVED PAYMENT</string>
+    <string name="take_photo_of_receipt">Take photo of receipt</string>
+    <string name="required_amount">Please enter Amount</string>
+    <string name="required_tip">Please enter Tip</string>
+    <string name="msg_title">Message</string>
+    <string name="error_camera">We can not access your camera</string>
+</resources>

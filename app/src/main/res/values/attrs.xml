@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom ToolBar -->
+    <declare-styleable name="CustomToolbar">
+        <attr name="toolbarTitle" format="string" />
+        <attr name="rightMenuIconOne" format="reference" />
+        <attr name="rightMenuIconTwo" format="reference" />
+        <attr name="displayLeftMenu" format="boolean" />
+        <attr name="displayRightMenuOne" format="boolean" />
+        <attr name="displayRightMenuTwo" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomToolbar_toolbarTitle" />
+</resources>

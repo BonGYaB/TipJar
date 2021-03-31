@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_height">66dp</dimen>
+    <dimen name="status_bar_height">24dp</dimen>
+    <dimen name="item_margin">8dp</dimen>
+    <dimen name="dim_20dp">20dp</dimen>
+    <dimen name="dim_15dp">15dp</dimen>
+    <dimen name="dim_10dp">10dp</dimen>
+    <dimen name="dim_30dp">30dp</dimen>
+    <dimen name="dim_24dp">24dp</dimen>
+</resources>

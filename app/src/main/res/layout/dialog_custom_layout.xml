@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="38dp"
+    android:layout_marginEnd="38dp"
+    android:gravity="center"
+    android:background="@color/colorClear"
+    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvImageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="399dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="12dp"
+        android:background="@drawable/bg_box_radius">
+
+        <ImageView
+            android:id="@+id/tvTipPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="399dp"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:padding="@dimen/dim_20dp"
+        android:gravity="center"
+        android:background="@drawable/bg_box_radius"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2021 January 00"
+            android:textSize="16sp"
+            android:textColor="@color/colorBlack"
+            android:contentDescription="Date"
+            tools:ignore="HardcodedText" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="$00.00"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tvTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tip: $00.00"
+                android:textSize="16sp"
+                android:textColor="@color/colorGray"
+                android:textAlignment="textEnd"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

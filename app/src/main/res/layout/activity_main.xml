@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".activity.MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_custom" />
+
+    <LinearLayout
+        style="@style/fullWidthWrapContent"
+        android:id="@+id/llContainer"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/dim_24dp"
+        android:layout_marginEnd="@dimen/dim_24dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/fullWidthWrapContent"
+            android:id="@+id/llAmount"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <TextView
+                style="@style/customLabel"
+                android:text="@string/enter_amount"/>
+
+
+<!--            <EditText-->
+<!--                android:id="@+id/ieAmount"-->
+<!--                style="@style/customInputEditText"-->
+<!--                android:layout_height="82dp"-->
+<!--                android:hint="0.0"-->
+<!--                android:inputType="numberDecimal"-->
+<!--                android:drawableLeft="@drawable/ic_dollar"-->
+<!--                android:background="@drawable/bg_box_radius"-->
+<!--                android:textSize="42sp"/>-->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/customInputLayout"
+                app:startIconDrawable="@drawable/ic_dollar"
+                app:hintEnabled="false"
+                android:focusableInTouchMode="true"
+                app:endIconMode="custom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ieAmount"
+                    style="@style/customInputEditText"
+                    android:hint="0.0"
+                    android:inputType="numberDecimal"
+                    android:textSize="42sp"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/fullWidthWrapContent"
+            android:id="@+id/llPeople"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <TextView
+                style="@style/fullWidthWrapContent"
+                android:text="@string/how_many_people"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                style="@style/fullWidthWrapContent"
+                android:layout_marginTop="@dimen/dim_10dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/iButtonPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorClear"
+                    android:src="@drawable/ic_add"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tvPeople"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="42sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <ImageButton
+                    android:id="@+id/iButtonMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorClear"
+                    android:src="@drawable/ic_minus"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/fullWidthWrapContent"
+            android:id="@+id/llTip"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <TextView
+                style="@style/customLabel"
+                android:text="@string/tip"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/customInputLayout"
+                app:endIconDrawable="@drawable/ic_percentage"
+                app:endIconMode="custom"
+                app:hintEnabled="false"
+                tools:ignore="HardcodedText,RtlSymmetry">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/customInputEditText"
+                    android:paddingStart="40dp"
+                    android:id="@+id/ieTip"
+                    android:textSize="42sp"
+                    android:hint="0.0"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/fullWidthWrapContent"
+            android:id="@+id/llTotalValue"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/fullWidthWrapContent"
+                    android:layout_weight="1"
+                    android:text="@string/total_tip"
+                    android:textSize="16sp"
+                    android:textStyle="normal"/>
+
+                <TextView
+                    style="@style/fullWidthWrapContent"
+                    android:id="@+id/tvTotalTip"
+                    android:layout_weight="1"
+                    android:text="$10.0"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    android:textAlignment="textEnd"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/fullWidthWrapContent"
+                android:layout_marginTop="@dimen/dim_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/fullWidthWrapContent"
+                    android:layout_weight="1"
+                    android:text="@string/per_person"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/fullWidthWrapContent"
+                    android:id="@+id/tvTotalAmount"
+                    android:layout_weight="1"
+                    android:text="$ 5"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textAlignment="textEnd"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/fullWidthWrapContent"
+            android:id="@+id/llFooter"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:layout_marginBottom="@dimen/dim_30dp"
+            android:orientation="vertical"
+            android:gravity="bottom"
+            tools:ignore="UselessParent">
+
+            <CheckBox
+                style="@style/fullWidthWrapContent"
+                android:id="@+id/checkboxTakePhoto"
+                android:layout_marginBottom="@dimen/dim_10dp"
+                android:checked="false"
+                android:text="@string/take_photo_of_receipt"
+                android:textColor="@color/colorBlack"
+                android:buttonTint="@color/colorPrimary"/>
+
+            <Button
+                style="@style/fullWidthWrapContent"
+                android:id="@+id/buttonSavePayment"
+                android:layout_height="50dp"
+                android:text="@string/save_payment"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_button"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
