@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.tipjar"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -71,7 +71,6 @@ dependencies {
     // Lifecycle components
     def life_cycle = '2.2.0-rc02'
     implementation "androidx.lifecycle:lifecycle-extensions:$life_cycle"
-//    implementation "androidx.lifecycle:lifecycle-common-java8:$life_cycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$life_cycle"
     testImplementation "android.arch.core:core-testing:1.1.1"
 
@@ -79,7 +78,6 @@ dependencies {
     def hilt_android ='1.0.0-alpha01'
     def hilt_version = '2.28-alpha'
     implementation "com.google.dagger:hilt-android:$hilt_version"
-//    implementation 'androidx.hilt:hilt-work:1.0.0-beta01'
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_android"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     kapt "androidx.hilt:hilt-compiler:$hilt_android"
