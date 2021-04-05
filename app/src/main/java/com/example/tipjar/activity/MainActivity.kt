@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
 import android.view.View
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
@@ -22,9 +23,12 @@ import kotlinx.android.synthetic.main.row_history.*
 import kotlinx.android.synthetic.main.toolbar_custom.view.*
 import kotlinx.android.synthetic.main.toolbar_design_logo.*
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.concurrent.schedule
 
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -37,7 +41,10 @@ class MainActivity : BaseActivity() {
     private var imageBitmap: Bitmap? = null
     private var mAmount = ""
     private var mTip = ""
-    private val timeStamp = DateTimeFormatter.ofPattern("yyyy MMMM dd").withZone(ZoneOffset.UTC).format(Instant.now())!!
+    // Calendar
+    private val calendar: Calendar = Calendar.getInstance()
+    @SuppressLint("SimpleDateFormat")
+    val dateFormat = SimpleDateFormat("yyyy MMMM dd")
 
     private lateinit var mTipViewModel: TipViewModel
 //    private val mTipViewModel: TipViewModel by viewModels()
@@ -160,8 +167,31 @@ class MainActivity : BaseActivity() {
             photoAsBase64 = imageBitmap!!.toBitmapToBase64()
         }
 
-        val tip = TipHistory(0, mAmount, mPeople.toString(), mTip, photoAsBase64, timeStamp)
+        val date: String = dateFormat.format(calendar.time)
+        val tip = TipHistory(0, mAmount, mPeople.toString(), mTip, photoAsBase64, date)
         mTipViewModel.addTip(tip)
         Toast.makeText(this, "The payment is successful", Toast.LENGTH_LONG).show()
+
+        if(isCheckedTakephoto) {
+            Timer("SettingUp", false).schedule(500) {
+                Thread {
+                    clearData()
+                }
+                moveToActivitySlideToRight(this@MainActivity, HistoryActivity::class.java)
+            }
+        }
+        clearData()
+    }
+
+    private fun clearData() {
+        // set text to empty
+        ieAmount.setText("")
+        ieTip.setText("")
+        // set people to 0
+        tvPeople.text = "0"
+        mPeople = 0
+        // remove checked to false
+        isCheckedTakephoto = false
+        findViewById<CheckBox>(R.id.checkboxTakePhoto).isChecked = false
     }
 }
